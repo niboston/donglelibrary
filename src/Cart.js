@@ -1,9 +1,14 @@
 import React from 'react';
 import './App.css';
+import {MDBBtn, MDBContainer, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader} from "mdbreact";
 
 function Cart() {
     return (
     	<div className="Cart">
+			<MDBModalBody>
+				{/*(...)*/}
+
+
 				<div>
 					{/*Card deck*/}
 					<div className="card-deck">
@@ -72,6 +77,7 @@ function Cart() {
 
 
 			</div>
+			</MDBModalBody>
 		</div>
 	);
 }

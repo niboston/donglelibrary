@@ -3,6 +3,8 @@ import * as DBHelper from './DBHelper'
 import './App.css';
 import ResultTableComponent from "./ResultTableComponent";
 import FilterComponent from "./FilterComponent";
+import {MDBBtn, MDBContainer, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader} from "mdbreact";
+import Cart from "./Cart";
 
 class App extends Component {
   state = {
@@ -24,6 +26,16 @@ class App extends Component {
     })
   }
 
+  state = {
+    modal: false
+  }
+
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     return (
         <div>
@@ -41,11 +53,24 @@ class App extends Component {
                   </a>
                 </li>
               </ul>
+              <div className="navbar-right">
               <form className="form-inline my-2 my-lg-0 ml-auto">
                 <input className="form-control" style={{width: "600px"}} type="search" placeholder="Search"
                        aria-label="Search"/>
                 <button className="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
               </form>
+              <MDBContainer>
+                <MDBBtn onClick={this.toggle}>Cart</MDBBtn>
+                <MDBModal isOpen={this.state.modal} toggle={this.toggle} centered>
+                  <MDBModalHeader toggle={this.toggle}>Cart</MDBModalHeader>
+                  <Cart/>
+                  <MDBModalFooter>
+                    <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
+                    <MDBBtn color="primary">Download Now</MDBBtn>
+                  </MDBModalFooter>
+                </MDBModal>
+              </MDBContainer>
+              </div>
             </div>
           </nav>
 
