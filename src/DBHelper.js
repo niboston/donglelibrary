@@ -1,27 +1,16 @@
-const api = process.env.PUBLIC_URL || '.';
+const api = "https://librarysearchservice.search.windows.net/indexes/mockdata/docs?api-version=2019-05-06&search=in";
 
-let token = localStorage.token;
-
-if (!token)
-  token = localStorage.token = Math.random().toString(36).substr(-8);
+let API_KEY = "B886F1DAC41FB38BA0126061A30AE32A"; // Temp API key
 
 const headers = {
   'Accept': 'application/json',
-  'Authorization': token
+  'api-key': API_KEY
 };
 
-export const getAll = () =>
-  fetch(`${api}/books.json`, {headers})
-    .then(res => res.json())
-    .then(data => data.books);
 
 export const search = (query) =>
-  fetch(`${api}/books.json`, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({query})
+  fetch(`${api}`, {
+    method: 'GET',
+    headers: headers,
   }).then(res => res.json())
-    .then(data => data.books);
+    .then(data => data.values).catch(e => console.log(e));

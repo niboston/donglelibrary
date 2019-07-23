@@ -4,7 +4,7 @@ import './App.css';
 import ResultTableComponent from "./ResultTableComponent";
 import FilterComponent from "./FilterComponent";
 
-const WAIT_INTERVAL = 3000;
+const WAIT_INTERVAL = 1000;
 
 class App extends Component {
   state = {
@@ -13,17 +13,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchAllBooks();
-  }
-
-  fetchAllBooks() {
-    DBHelper.getAll().then((books) => {
-      if (books) {
-        this.setState({books: books});
-      }
-    }).catch((e) => {
-      console.log(e);
-    })
   }
 
   updateQuery = (query) => {
