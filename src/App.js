@@ -3,7 +3,7 @@ import * as DBHelper from './DBHelper'
 import './App.css';
 import ResultTableComponent from "./ResultTableComponent";
 import FilterComponent from "./FilterComponent";
-import {MDBBtn, MDBContainer, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader} from "mdbreact";
+import {MDBBtn, MDBContainer, MDBModal, MDBModalFooter, MDBModalHeader} from "mdbreact";
 import Cart from "./Cart";
 
 class App extends Component {
@@ -61,7 +61,7 @@ class App extends Component {
               </form>
               <MDBContainer>
                 <MDBBtn onClick={this.toggle}>Cart</MDBBtn>
-                <MDBModal isOpen={this.state.modal} toggle={this.toggle} centered>
+                <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg" centered>
                   <MDBModalHeader toggle={this.toggle}>Cart</MDBModalHeader>
                   <Cart/>
                   <MDBModalFooter>
