@@ -1,9 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+
+      <Link to="/cart/">Cart</Link>
+
       <nav className="navbar navbar-expand-lg navbar-dark primary-color">
 
         <a className="navbar-brand" href="#">Dongle Library</a>
