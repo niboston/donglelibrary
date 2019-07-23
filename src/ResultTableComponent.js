@@ -12,7 +12,7 @@ class ResultTableComponent extends React.Component {
           <th scope="col">#</th>
           <th scope="col">Book Name</th>
           <th scope="col">Author</th>
-          <th scope="col">Source</th>
+          <th scope="col">Category</th>
         </tr>
         </thead>
         <tbody>

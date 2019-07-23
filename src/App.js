@@ -4,25 +4,43 @@ import './App.css';
 import ResultTableComponent from "./ResultTableComponent";
 import FilterComponent from "./FilterComponent";
 
+const WAIT_INTERVAL = 3000;
+
 class App extends Component {
   state = {
+    query: '',
     books: [],
   };
 
   componentDidMount() {
-    this.fetchBooks();
+    this.fetchAllBooks();
   }
 
-  fetchBooks() {
+  fetchAllBooks() {
     DBHelper.getAll().then((books) => {
       if (books) {
         this.setState({books: books});
-        console.log(this.state.books)
       }
     }).catch((e) => {
       console.log(e);
     })
   }
+
+  updateQuery = (query) => {
+    this.setState({query: query});
+    const ctx = this;
+
+    if (this.timeout)
+      clearTimeout(this.timeout);
+
+    this.timeout = setTimeout(() => {
+      DBHelper.search(query).then(function (books) {
+        if (books) {
+          ctx.setState({books: books});
+        }
+      })
+    }, WAIT_INTERVAL);
+  };
 
   render() {
     return (
@@ -42,8 +60,11 @@ class App extends Component {
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0 ml-auto">
-              <input className="form-control" style={{width: "600px"}} type="search" placeholder="Search"
-                     aria-label="Search"/>
+              <input className="form-control" style={{width: "600px"}} type="search"
+                     aria-label="Search"
+                     placeholder="Search by title or author"
+                     value={this.state.query}
+                     onChange={(event) => this.updateQuery(event.target.value)}/>
               <button className="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
             </form>
           </div>

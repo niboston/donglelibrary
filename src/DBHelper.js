@@ -11,6 +11,17 @@ const headers = {
 };
 
 export const getAll = () =>
-  fetch(`${api}/books.json`, { headers })
+  fetch(`${api}/books.json`, {headers})
     .then(res => res.json())
+    .then(data => data.books);
+
+export const search = (query) =>
+  fetch(`${api}/books.json`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({query})
+  }).then(res => res.json())
     .then(data => data.books);
