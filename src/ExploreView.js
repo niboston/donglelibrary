@@ -65,7 +65,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/library.png"
+                     src={process.env.PUBLIC_URL + "/assets/library.png"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -89,7 +89,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/stem.png"
+                     src={process.env.PUBLIC_URL + "/assets/stem.png"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -115,7 +115,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/fairy_tale.jpg"
+                     src={process.env.PUBLIC_URL + "/assets/fairy_tale.jpg"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -143,7 +143,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/books_love.jpg"
+                     src={process.env.PUBLIC_URL + "/assets/books_love.jpg"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -167,7 +167,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/african_books.jpg"
+                     src={process.env.PUBLIC_URL + "/assets/african_books.jpg"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -190,7 +190,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/comicbooks.jpg"
+                     src={process.env.PUBLIC_URL + "/assets/comicbooks.jpg"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -220,7 +220,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/library.png"
+                     src={process.env.PUBLIC_URL + "/assets/library.png"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -244,7 +244,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/stem.png"
+                     src={process.env.PUBLIC_URL + "/assets/stem.png"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -270,7 +270,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="/assets/african_books.jpg"
+                     src={process.env.PUBLIC_URL + "/assets/african_books.jpg"}
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
