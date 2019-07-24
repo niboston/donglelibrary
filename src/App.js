@@ -3,32 +3,36 @@ import * as DBHelper from './DBHelper'
 import './App.css';
 import ResultTableComponent from "./ResultTableComponent";
 import FilterComponent from "./FilterComponent";
-import {MDBBtn, MDBContainer, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader} from "mdbreact";
+import {MDBBtn, MDBContainer, MDBModal, MDBModalFooter, MDBModalHeader} from "mdbreact";
 import Cart from "./Cart";
 
 class App extends Component {
   state = {
-    query: '',
+    query: {"text": "", "language": "en", "format": [], "categories": []},
     books: [],
+    cart: new Set(),
     modal: false
   };
 
   componentDidMount() {
+
   }
 
-  updateQuery = (query) => {
-    this.setState({query: query});
-    const ctx = this;
-
-    if (this.timeout)
-      clearTimeout(this.timeout);
-
-    DBHelper.search(query).then(function (books) {
+  onSearchClicked(e) {
+    e.preventDefault();
+    let ctx = this;
+    DBHelper.search(this.state.query).then(function (books) {
       console.log(books);
       if (books) {
         ctx.setState({books: books});
       }
-    })
+    });
+  }
+
+  updateQueryText = (queryText) => {
+    let query = this.state.query;
+    query.text = queryText;
+    this.setState({query: query});
   };
 
   toggle = () => {
@@ -36,6 +40,20 @@ class App extends Component {
       modal: !this.state.modal
     });
   };
+
+  onAdded(index) {
+    let books = this.state.books;
+    let cart = this.state.cart;
+    if (books[index].isAdded) {
+      books[index].isAdded = false;
+      cart.delete(books[index])
+    } else {
+      books[index].isAdded = true;
+      cart.add(books[index]);
+    }
+    console.log(cart);
+    this.setState({books: books, cart: cart});
+  }
 
   render() {
     return (
@@ -59,12 +77,16 @@ class App extends Component {
                 <input className="form-control" style={{width: "600px"}} type="search"
                        aria-label="Search"
                        placeholder="Search by title or author"
-                       value={this.state.query}
-                       onChange={(event) => this.updateQuery(event.target.value)}/>
-                <button className="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
+                       value={this.state.query.text}
+                       onChange={(event) => this.updateQueryText(event.target.value)}/>
+                <button className="btn btn-outline-white btn-md my-2 my-sm-0 ml-3"
+                        onClick={(e) => this.onSearchClicked(e)}>Search
+                </button>
               </form>
               <MDBContainer>
-                <MDBBtn onClick={this.toggle}>Cart</MDBBtn>
+                <MDBBtn onClick={this.toggle}>Cart <span
+                  className="badge badge-danger ml-2">{this.state.cart.size > 20 ? "20+" : this.state.cart.size}</span>
+                </MDBBtn>
                 <MDBModal isOpen={this.state.modal} toggle={this.toggle} centered>
                   <MDBModalHeader toggle={this.toggle}>Cart</MDBModalHeader>
                   <Cart/>
@@ -81,13 +103,13 @@ class App extends Component {
         <div className="container">
           <div className="row my-5">
             {/* Side bar filter component */}
-            <div className="col-md-4">
+            <div className="col-md-3">
               <FilterComponent/>
             </div>
 
             {/* Result list component */}
-            <div className="col-md-8">
-              <ResultTableComponent books={this.state.books}/>
+            <div className="col-md-9">
+              <ResultTableComponent books={this.state.books} onAdded={(index) => this.onAdded(index)}/>
             </div>
           </div>
         </div>

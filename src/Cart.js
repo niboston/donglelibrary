@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {MDBBtn, MDBContainer, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader} from "mdbreact";
+import {MDBModalBody} from "mdbreact";
 
 function Cart() {
     return (
