@@ -6,8 +6,6 @@ import FilterComponent from "./FilterComponent";
 import {MDBBtn, MDBContainer, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader} from "mdbreact";
 import Cart from "./Cart";
 
-const WAIT_INTERVAL = 1000;
-
 class App extends Component {
   state = {
     query: '',
@@ -25,14 +23,12 @@ class App extends Component {
     if (this.timeout)
       clearTimeout(this.timeout);
 
-    this.timeout = setTimeout(() => {
-      DBHelper.search(query).then(function (books) {
-        console.log(books);
-        if (books) {
-          ctx.setState({books: books});
-        }
-      })
-    }, WAIT_INTERVAL);
+    DBHelper.search(query).then(function (books) {
+      console.log(books);
+      if (books) {
+        ctx.setState({books: books});
+      }
+    })
   };
 
   toggle = () => {
