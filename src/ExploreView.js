@@ -138,7 +138,8 @@ class ExploreView extends Component {
           <MDBModalHeader toggle={this.closeCollectionModal}>{this.state.collection.name}</MDBModalHeader>
           <ResultTableComponent books={this.state.collection.books}
                                 cart={this.props.cart}
-                                onCartUpdate={(id) => this.props.onCartUpdate(id)}/>
+                                onCartUpdate={(id) => this.props.onCartUpdate(id)}
+                                emptyResultString={"Collection result is empty!"}/>
           <MDBModalFooter>
             <MDBBtn color="secondary" onClick={this.closeCollectionModal}>Close</MDBBtn>
             <MDBBtn color="danger" disabled={this.state.collection.books <= 0}

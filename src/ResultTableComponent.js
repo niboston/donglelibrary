@@ -7,10 +7,14 @@ class ResultTableComponent extends React.Component {
     const books = this.props.books;
     const cart = this.props.cart;
 
+    let emptyResultString = "Your list is empty!";
+    if (this.props.emptyResultString)
+      emptyResultString = this.props.emptyResultString;
+
     return (
       <div className="m-4">
         {(!books || books.length === 0) &&
-        <p className="text-center w-responsive mx-auto mb-3">Your list is empty!</p>}
+        <p className="text-center w-responsive mx-auto mb-3">{emptyResultString}</p>}
 
         {books && books.length > 0 &&
         <div style={{height: "70vh", overflow: "auto"}}>

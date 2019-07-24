@@ -68,8 +68,9 @@ class HomeView extends Component {
 
             <ResultTableComponent books={this.state.books}
                                   cart={this.props.cart}
-                                  onCartUpdate={(id) => this.props.onCartUpdate(id)}/>
-                                  
+                                  onCartUpdate={(id) => this.props.onCartUpdate(id)}
+                                  emptyResultString={""}/>
+
             {this.state.books && this.state.books.length > 0 &&
             <MDBModalFooter>
               <MDBBtn color="danger" disabled={this.state.books <= 0}

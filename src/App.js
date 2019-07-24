@@ -91,7 +91,8 @@ class App extends Component {
                   <MDBModalHeader toggle={this.toggleCartModal}>Cart</MDBModalHeader>
                   <ResultTableComponent books={Array.from(this.state.cart.values())}
                                         cart={this.state.cart}
-                                        onCartUpdate={(id) => this.onCartUpdate(id)}/>
+                                        onCartUpdate={(id) => this.onCartUpdate(id)}
+                                        emptyResultString={"Your cart is empty!"}/>
                   <MDBModalFooter>
                     <MDBBtn color="secondary" onClick={this.toggleCartModal}>Close</MDBBtn>
                     <MDBBtn color="primary" disabled={this.state.cart.size <= 0}>Download Now</MDBBtn>
