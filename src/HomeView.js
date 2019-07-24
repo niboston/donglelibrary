@@ -14,17 +14,10 @@ class HomeView extends Component {
 
   onSearchClicked(e) {
     e.preventDefault();
-    let ctx = this, cart = this.props.cart;
+    let ctx = this;
     DBHelper.search(this.state.query).then(function (books) {
       console.log(books);
       if (books) {
-        if (cart.size > 0) {
-          for (let book of books) {
-            if (cart.has(book.id)) {
-              book.isAdded = true;
-            }
-          }
-        }
         ctx.setState({books: books});
       }
     });
@@ -55,6 +48,7 @@ class HomeView extends Component {
 
           {/* Result list component */}
           <div className="col-md-9">
+            {/* Search bar */}
             <form className="form-inline mx-4 mb-4">
               <input className="form-control" style={{width: "100%"}} type="search"
                      aria-label="Search"
@@ -66,6 +60,7 @@ class HomeView extends Component {
               </button>
             </form>
 
+            {/* Result table */}
             <ResultTableComponent books={this.state.books}
                                   cart={this.props.cart}
                                   onCartUpdate={(id) => this.props.onCartUpdate(id)}
