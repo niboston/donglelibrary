@@ -12,9 +12,8 @@ export const search_categories = (query) => {
 
   var category_array = Array.from(query.categories.values());
 
-  let final_query = "&$filter=Category/any(t: t eq " +  "'" + category_array + "')";
-  if (query.text != '')
-  {
+  let final_query = "&$filter=Category/any(t: t eq " + "'" + category_array + "')";
+  if (query.text != '') {
     final_query = '&search=' + query.text + final_query;
   }
 
@@ -26,30 +25,18 @@ export const search_categories = (query) => {
     .then(data => data.value);
 };
 
-/*
 export const search = (query) => {
-  var category_array = Array.from(query.categories.values());
-
-  return fetch(api + "&search=" + query.text, {
-    method: 'GET',
-    headers: headers,
-  }).then(res => res.json())
-    .then(data => data.value);
-};
-*/
-
-export const search = (query) => {
-  let category_array = Array.from(query.categories.values());
   let final_query = '';
-  if (query.text != '')
-  {
+  if (query.text != '') {
     final_query += '&search=' + query.text;
   }
 
-  if (category_array != '')
-  {
-    let category = category_array[category_array.length-1];
-    final_query += "&$filter=Category/any(t: t eq " +  "'" + category + "')";
+  if (query.categories) {
+    let category_array = Array.from(query.categories.values());
+    if (category_array != '') {
+      let category = category_array[category_array.length - 1];
+      final_query += "&$filter=Category/any(t: t eq " + "'" + category + "')";
+    }
   }
 
   console.log(final_query);

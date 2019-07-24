@@ -78,7 +78,7 @@ class FavoriteView extends Component {
                 <p>Language: English, Francais</p>
                 <p className="card-text">Blast off with extraordinary tales featuring time travel, parallel universes, space exploration, extraterrestrial life and more!.</p>
                 <button type="button" className="btn btn-primary btn-md"
-                        onClick={() => this.toggleCollectionModal("K-12 US Literature")}>Open collection
+                        onClick={() => this.toggleCollectionModal("Sci-fi Literature")}>Open collection
                 </button>
               </div>
             </div>
@@ -100,7 +100,7 @@ class FavoriteView extends Component {
 
 इस भयानक वर्णन के लिए क्षमा करें, लेकिन यह सबसे अच्छा है जिसे आप यहाँ प्राप्त करने जा रहे हैं।</p>
                 <button type="button" className="btn btn-primary btn-md"
-                        onClick={() => this.toggleCollectionModal("STEM for high school students")}>Open collection
+                        onClick={() => this.toggleCollectionModal("Hindi Children's Books")}>Open collection
                 </button>
               </div>
             </div>
@@ -121,7 +121,7 @@ class FavoriteView extends Component {
                 <p className="card-text">Dette resume er på dansk. Jeg kender ingen dansk. Så du bliver bare nødt til at læse denne dårligt oversatte tekst.
 								Undskyld for denne forfærdelige beskrivelse, men dette er det bedste, du kommer hertil. Jeg kender heller ikke nogen af de andre sprog, der er anført i beskrivelsesfeltet. Tak.</p>
                 <button type="button" className="btn btn-primary btn-md"
-                        onClick={() => this.toggleCollectionModal("Fairy Tales")}>Open collection
+                        onClick={() => this.toggleCollectionModal("Scandinavian History")}>Open collection
                 </button>
               </div>
             </div>
