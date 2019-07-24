@@ -20,6 +20,7 @@ function Cart() {
                         <MDBRow>
                             <MDBCol md="4">
                                 <MDBCard>
+                                    <button type="button" className="close cart-delete-button" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <MDBCardBody>
                                         <MDBCardTitle>Card title</MDBCardTitle>
                                         <MDBCardText>

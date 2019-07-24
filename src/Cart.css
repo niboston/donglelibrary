@@ -4,3 +4,10 @@
 .modal-lg {
     max-width: 80%;
 }
+.card-body {
+    padding-top: 0;
+}
+.cart-delete-button {
+    align-self: flex-end;
+    padding: 5px !important;
+}
