@@ -7,11 +7,33 @@ import {MDBBtn, MDBContainer, MDBModal, MDBModalFooter, MDBModalHeader} from "md
 import Cart from "./Cart";
 
 class App extends Component {
-  state = {
-    query: '',
-    books: [],
-    modal: false
-  };
+	constructor(props) {
+		super(props);
+		this.state = {
+			query: '',
+	    books: [],
+	    modal: false,
+			cart_items: {}
+		};
+		this.addToCart = this.addToCart.bind(this);
+		this.removeFromCart = this.removeFromCart.bind(this);
+	}
+
+	addToCart(item) {
+		const items = this.state.cart_items
+		items[item.id] = item
+		this.setState({cart_items: items})
+
+		console.log(this.state.cart_items)
+	}
+
+	removeFromCart(id) {
+		const items = this.state.cart_items
+		delete items[id]
+		this.setState({cart_items: items})
+
+		console.log(this.state.cart_items)
+	}
 
   componentDidMount() {
   }
@@ -31,7 +53,7 @@ class App extends Component {
     })
   };
 
-  toggle = () => {
+  toggleCart = () => {
     this.setState({
       modal: !this.state.modal
     });
@@ -64,12 +86,12 @@ class App extends Component {
                 <button className="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
               </form>
               <MDBContainer>
-                <MDBBtn onClick={this.toggle}>Cart</MDBBtn>
-                <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg" centered>
-                  <MDBModalHeader toggle={this.toggle}>Cart</MDBModalHeader>
-                  <Cart/>
+                <MDBBtn onClick={this.toggleCart}>Cart</MDBBtn>
+                <MDBModal isOpen={this.state.modal} toggle={this.toggleCart} size="lg" centered>
+                  <MDBModalHeader toggle={this.toggleCart}>Cart</MDBModalHeader>
+                  <Cart cart_items={this.state.cart_items}/>
                   <MDBModalFooter>
-                    <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
+                    <MDBBtn color="secondary" onClick={this.toggleCart}>Close</MDBBtn>
                     <MDBBtn color="primary">Download Now</MDBBtn>
                   </MDBModalFooter>
                 </MDBModal>
@@ -87,7 +109,7 @@ class App extends Component {
 
             {/* Result list component */}
             <div className="col-md-8">
-              <ResultTableComponent books={this.state.books}/>
+              <ResultTableComponent books={this.state.books} addToCart={(e) => this.addToCart(e)} removeFromCart={this.removeFromCart}/>
             </div>
           </div>
         </div>
