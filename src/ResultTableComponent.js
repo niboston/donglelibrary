@@ -33,7 +33,7 @@ class ResultTableComponent extends React.Component {
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>{book.BookName}</td>
-                <td>{book.Author}</td>
+                <td>{book.AuthorName}</td>
                 <td>{book.Category}</td>
                 <td>
                   <h6><a onClick={() => this.props.onCartUpdate(book)}>{cart.has(book.id) ?

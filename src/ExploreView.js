@@ -143,7 +143,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/books_love.jpg"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -159,7 +159,7 @@ class ExploreView extends Component {
                   collection. For the Love of Books shares the vision of Juniper Books, and embraces the roles that
                   books fulfill in our lives and their staying power.</p>
                 <button type="button" className="btn btn-primary btn-md"
-                        onClick={() => this.toggleCollectionModal("K-12 US Literature")}>Open collection
+                        onClick={() => this.toggleCollectionModal("For the Love of Books")}>Open collection
                 </button>
               </div>
             </div>
@@ -167,25 +167,22 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/african_books.jpg"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">STEM for high school students</h4>
+                <h4 className="card-title">African History</h4>
                 <h6>Curated by <a>Michelle Lee</a></h6>
                 <p>Language: English, Spanish</p>
-                <p className="card-text">Discover meaningful, rigorous books and text sets for a fresh take on
-                  STEM/STEAM
-                  study. Our books explore the physical, life, health, earth and space sciences along with engineering,
-                  art, mathematics, and technology. These high-interest nonfiction, realistic fiction, and science
-                  fiction
-                  books provide an engaging opportunity to discuss timely topics that will expand student knowledge and
-                  inspire the scientists of the future.</p>
+                <p className="card-text">African history is a massive and intricate subject, world-shaking events have
+                  shaped the continent's history, from the early men and women who left their footsteps in volcanic ash
+                  to the liberation of Nelson Mandela, and a whole lot of wars, conquests, civilisations and revolutions
+                  in between.</p>
                 <button type="button" className="btn btn-primary btn-md"
-                        onClick={() => this.toggleCollectionModal("STEM for high school students")}>Open collection
+                        onClick={() => this.toggleCollectionModal("African History")}>Open collection
                 </button>
               </div>
             </div>
@@ -193,20 +190,22 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/comicbooks.jpg"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">Fairy Tales</h4>
+                <h4 className="card-title">Comic Books</h4>
                 <h6>Curated by <a>Tina Wen</a></h6>
                 <p>Language: English</p>
-                <p className="card-text">Read our huge collection of famous fairy tales and bedtime stories. Brothers
-                  Grimm fairy tales, Hans Christian Andersen, Charles Perrault, Aesop's fables,...</p>
+                <p className="card-text">My Dad and I share a passion for comics. I show you guys our highlighted key
+                  issues from our silver age comic book collection! We both have many more key comics from all eras
+                  (Golden Age, Silver Age, Bronze Age and later) and thousands upon thousands more comics over all!
+                </p>
                 <button type="button" className="btn btn-primary btn-md"
-                        onClick={() => this.toggleCollectionModal("Fairy Tales")}>Open collection
+                        onClick={() => this.toggleCollectionModal("Comic Books")}>Open collection
                 </button>
               </div>
             </div>
@@ -245,7 +244,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/stem.png"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -271,20 +270,22 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/african_books.jpg"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">Fairy Tales</h4>
-                <h6>Curated by <a>Darren Moffatt</a></h6>
-                <p>Language: English</p>
-                <p className="card-text">Read our huge collection of famous fairy tales and bedtime stories. Brothers
-                  Grimm fairy tales, Hans Christian Andersen, Charles Perrault, Aesop's fables,...</p>
+                <h4 className="card-title">African History</h4>
+                <h6>Curated by <a>Michelle Lee</a></h6>
+                <p>Language: English, Spanish</p>
+                <p className="card-text">African history is a massive and intricate subject, world-shaking events have
+                  shaped the continent's history, from the early men and women who left their footsteps in volcanic ash
+                  to the liberation of Nelson Mandela, and a whole lot of wars, conquests, civilisations and revolutions
+                  in between.</p>
                 <button type="button" className="btn btn-primary btn-md"
-                        onClick={() => this.toggleCollectionModal("Fairy Tales")}>Open collection
+                        onClick={() => this.toggleCollectionModal("African History")}>Open collection
                 </button>
               </div>
             </div>
