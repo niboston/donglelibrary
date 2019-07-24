@@ -51,7 +51,10 @@ class Cart extends Component {
 				<MDBCardBody>
 					<MDBCardTitle>{items[i].BookName}</MDBCardTitle>
 					<MDBCardText>
-						Some quick example text t
+						Author: {items[i].Author}
+						Category: {items[i].Category}
+						Language: {items[i].Language}
+						File Format: {items[i].Format}
 					</MDBCardText>
 				</MDBCardBody>
 			</MDBCard>
