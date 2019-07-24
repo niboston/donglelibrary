@@ -145,7 +145,6 @@ class App extends Component {
                       onCartAddAll={(books) => this.onCartAddAll(books)}
                       onCartRemoveAll={(books) => this.onCartRemoveAll(books)}/>
           )}/>
-        )}/>
 
       </div>
     );
