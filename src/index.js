@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Cart from './Cart';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import ExploreView from "./ExploreView";
 
 ReactDOM.render(<Router>
     <div>
         <div className="main">
             <Route exact path="/" component={App}/>
-            <Route exact path="/cart" component={Cart}/>
+            <Route exact path="/explore" component={ExploreView}/>
         </div>
     </div>
 </Router>, document.getElementById('root'));

@@ -4,13 +4,12 @@ import './App.css';
 import ResultTableComponent from "./ResultTableComponent";
 import FilterComponent from "./FilterComponent";
 import {MDBBtn, MDBContainer, MDBModal, MDBModalFooter, MDBModalHeader} from "mdbreact";
-import Cart from "./Cart";
 
 class App extends Component {
   state = {
     query: {"text": "", "language": "en", "format": [], "categories": []},
     books: [],
-    cart: new Set(),
+    cart: new Map(),
     modal: false
   };
 
@@ -20,10 +19,17 @@ class App extends Component {
 
   onSearchClicked(e) {
     e.preventDefault();
-    let ctx = this;
+    let ctx = this, cart = this.state.cart;
     DBHelper.search(this.state.query).then(function (books) {
       console.log(books);
       if (books) {
+        if (cart.size > 0) {
+          for (let book of books) {
+            if (cart.has(book.id)) {
+              book.isAdded = true;
+            }
+          }
+        }
         ctx.setState({books: books});
       }
     });
@@ -41,16 +47,19 @@ class App extends Component {
     });
   };
 
-  onAdded(index) {
+  onAdded(id) {
     let books = this.state.books;
     let cart = this.state.cart;
-    if (books[index].isAdded) {
-      books[index].isAdded = false;
-      cart.delete(books[index])
+    let book = books.find(x => x.id === id);
+
+    if (book.isAdded) {
+      book.isAdded = false;
+      cart.delete(book.id);
     } else {
-      books[index].isAdded = true;
-      cart.add(books[index]);
+      book.isAdded = true;
+      cart.set(book.id, book);
     }
+
     console.log(cart);
     this.setState({books: books, cart: cart});
   }
@@ -87,12 +96,13 @@ class App extends Component {
                 <MDBBtn onClick={this.toggle}>Cart <span
                   className="badge badge-danger ml-2">{this.state.cart.size > 20 ? "20+" : this.state.cart.size}</span>
                 </MDBBtn>
-                <MDBModal isOpen={this.state.modal} toggle={this.toggle} centered>
+                <MDBModal isOpen={this.state.modal} toggle={this.toggle} centered size="lg">
                   <MDBModalHeader toggle={this.toggle}>Cart</MDBModalHeader>
-                  <Cart/>
+                  <ResultTableComponent books={Array.from(this.state.cart.values())}
+                                        onAdded={(id) => this.onAdded(id)}/>
                   <MDBModalFooter>
                     <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-                    <MDBBtn color="primary">Download Now</MDBBtn>
+                    <MDBBtn color="primary" disabled={this.state.cart.size <= 0}>Download Now</MDBBtn>
                   </MDBModalFooter>
                 </MDBModal>
               </MDBContainer>
@@ -109,7 +119,7 @@ class App extends Component {
 
             {/* Result list component */}
             <div className="col-md-9">
-              <ResultTableComponent books={this.state.books} onAdded={(index) => this.onAdded(index)}/>
+              <ResultTableComponent books={this.state.books} onAdded={(id) => this.onAdded(id)}/>
             </div>
           </div>
         </div>
