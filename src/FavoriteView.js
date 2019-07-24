@@ -58,29 +58,25 @@ class FavoriteView extends Component {
   render() {
     return (
       <div className="container my-5">
-        <h1 className="text-center">Your Favorite</h1>
-        <p className="text-center">This is your collection....</p>
+        <h1 className="text-center">My Favorites</h1>
+        <p className="text-center">Your favorite collections</p>
         <div className="row mt-4 mb-5">
           {/*Card deck*/}
           <div className="card-deck">
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
-                     alt="Card image cap"/>
+                     src={process.env.PUBLIC_URL + "/assets/rocket.jpg"}
+                     alt="Rocket ship"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">K-12 US Literature</h4>
-                <h6>Curated by <a>Robert Koester</a></h6>
-                <p>Language: English</p>
-                <p className="card-text">This collection comprises works of American literature from colonial to
-                  contemporary times, including poetry, short
-                  stories, novels, drama, and nonfiction. The literary works provide opportunities for critical writing,
-                  creative projects, and online discussions. Students develop vocabulary skills and refresh their
-                  knowledge of grammar, usage, and mechanics in preparation for standardized tests.</p>
+                <h4 className="card-title">Sci-fi Literature</h4>
+                <h6>Curated by <a>Jurels Neve</a></h6>
+                <p>Language: English, Francais</p>
+                <p className="card-text">Blast off with extraordinary tales featuring time travel, parallel universes, space exploration, extraterrestrial life and more!.</p>
                 <button type="button" className="btn btn-primary btn-md"
                         onClick={() => this.toggleCollectionModal("K-12 US Literature")}>Open collection
                 </button>
@@ -90,23 +86,19 @@ class FavoriteView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
-                     alt="Card image cap"/>
+                     src={process.env.PUBLIC_URL + "/assets/childrens_books.jpg"}
+                     alt="A stack of children's books"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">STEM for high school students</h4>
-                <h6>Curated by <a>Darren Moffatt</a></h6>
-                <p>Language: English, Spanish</p>
-                <p className="card-text">Discover meaningful, rigorous books and text sets for a fresh take on
-                  STEM/STEAM
-                  study. Our books explore the physical, life, health, earth and space sciences along with engineering,
-                  art, mathematics, and technology. These high-interest nonfiction, realistic fiction, and science
-                  fiction
-                  books provide an engaging opportunity to discuss timely topics that will expand student knowledge and
-                  inspire the scientists of the future.</p>
+                <h4 className="card-title">Hindi Children's Books</h4>
+                <h6>Curated by <a>Bindi Soohk</a></h6>
+                <p>Language: Hindi</p>
+                <p className="card-text">यह सारांश हिंदी में है। मुझे कोई हिंदी नहीं आती इसलिए आपको इस बुरी तरह से अनुवादित पाठ को पढ़ना होगा।
+
+इस भयानक वर्णन के लिए क्षमा करें, लेकिन यह सबसे अच्छा है जिसे आप यहाँ प्राप्त करने जा रहे हैं।</p>
                 <button type="button" className="btn btn-primary btn-md"
                         onClick={() => this.toggleCollectionModal("STEM for high school students")}>Open collection
                 </button>
@@ -116,18 +108,18 @@ class FavoriteView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
-                     alt="Card image cap"/>
+                     src={process.env.PUBLIC_URL + "/assets/danish.jpg"}
+                     alt="A guy stands at the bow of a ship"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">Fairy Tales</h4>
-                <h6>Curated by <a>Darren Moffatt</a></h6>
-                <p>Language: English</p>
-                <p className="card-text">Read our huge collection of famous fairy tales and bedtime stories. Brothers
-                  Grimm fairy tales, Hans Christian Andersen, Charles Perrault, Aesop's fables,...</p>
+                <h4 className="card-title">Scandinavian History</h4>
+                <h6>Curated by <a>Khang Vu</a></h6>
+                <p>Language: Dansk, Suomalainen, Svenska</p>
+                <p className="card-text">Dette resume er på dansk. Jeg kender ingen dansk. Så du bliver bare nødt til at læse denne dårligt oversatte tekst.
+								Undskyld for denne forfærdelige beskrivelse, men dette er det bedste, du kommer hertil. Jeg kender heller ikke nogen af de andre sprog, der er anført i beskrivelsesfeltet. Tak.</p>
                 <button type="button" className="btn btn-primary btn-md"
                         onClick={() => this.toggleCollectionModal("Fairy Tales")}>Open collection
                 </button>
