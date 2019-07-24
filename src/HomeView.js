@@ -3,9 +3,11 @@ import './App.css';
 import * as DBHelper from "./DBHelper";
 import FilterComponent from "./FilterComponent";
 import ResultTableComponent from "./ResultTableComponent";
+import {MDBBtn, MDBModalFooter} from "mdbreact";
 
 class HomeView extends Component {
   state = {
+    books: [],
     query: {"text": "", "language": "en", "format": [], "categories": []},
     modal: false
   };
@@ -23,7 +25,7 @@ class HomeView extends Component {
             }
           }
         }
-        ctx.props.updateBooks(books);
+        ctx.setState({books: books});
       }
     });
   }
@@ -32,6 +34,14 @@ class HomeView extends Component {
     let query = this.state.query;
     query.text = queryText;
     this.setState({query: query});
+  };
+
+  addAllBooks = () => {
+    this.props.onCartAddAll(this.state.books);
+  };
+
+  removeAllBooks = () => {
+    this.props.onCartRemoveAll(this.state.books);
   };
 
   render() {
@@ -56,9 +66,17 @@ class HomeView extends Component {
               </button>
             </form>
 
-            <ResultTableComponent books={this.props.books}
+            <ResultTableComponent books={this.state.books}
                                   cart={this.props.cart}
-                                  onAdded={(id) => this.props.onAdded(id)}/>
+                                  onCartUpdate={(id) => this.props.onCartUpdate(id)}/>
+                                  
+            {this.state.books && this.state.books.length > 0 &&
+            <MDBModalFooter>
+              <MDBBtn color="danger" disabled={this.state.books <= 0}
+                      onClick={this.removeAllBooks}>Remove all</MDBBtn>
+              <MDBBtn color="primary" disabled={this.state.books <= 0}
+                      onClick={this.addAllBooks}>Add all</MDBBtn>
+            </MDBModalFooter>}
           </div>
         </div>
       </div>

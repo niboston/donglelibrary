@@ -32,7 +32,7 @@ class ResultTableComponent extends React.Component {
                 <td>{book.Author}</td>
                 <td>{book.Category}</td>
                 <td>
-                  <h6><a onClick={() => this.props.onAdded(book)}>{cart.has(book.id) ?
+                  <h6><a onClick={() => this.props.onCartUpdate(book)}>{cart.has(book.id) ?
                     <span className="badge badge-danger">Remove</span> :
                     <span className="badge badge-success">Add</span>}</a>
                   </h6>

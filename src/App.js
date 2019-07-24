@@ -10,7 +10,6 @@ import ExploreView from "./ExploreView";
 
 class App extends Component {
   state = {
-    books: [],
     cart: new Map(),
     modal: false,
     navItem: ''
@@ -20,17 +19,13 @@ class App extends Component {
 
   }
 
-  updateBooks(books) {
-    this.setState({books: books});
-  }
-
   toggleCartModal = () => {
     this.setState({
       modal: !this.state.modal
     });
   };
 
-  onAdded(book) {
+  onCartUpdate(book) {
     let cart = this.state.cart;
 
     if (cart.has(book.id)) {
@@ -39,8 +34,23 @@ class App extends Component {
       cart.set(book.id, book);
     }
 
-    console.log(cart);
     this.setState({cart: cart});
+  }
+
+  onCartAddAll(books) {
+    for (let book of books) {
+      let cart = this.state.cart;
+      cart.set(book.id, book);
+      this.setState({cart: cart});
+    }
+  }
+
+  onCartRemoveAll(books) {
+    for (let book of books) {
+      let cart = this.state.cart;
+      cart.delete(book.id);
+      this.setState({cart: cart});
+    }
   }
 
   updateNavItem(item) {
@@ -75,13 +85,13 @@ class App extends Component {
             <div className="navbar-right">
               <MDBContainer>
                 <MDBBtn onClick={this.toggleCartModal}>Cart <span
-                  className="badge badge-danger ml-2">{this.state.cart.size > 20 ? "20+" : this.state.cart.size}</span>
+                  className="badge badge-danger ml-2">{this.state.cart.size > 100 ? "100+" : this.state.cart.size}</span>
                 </MDBBtn>
                 <MDBModal isOpen={this.state.modal} toggle={this.toggleCartModal} centered size="lg">
                   <MDBModalHeader toggle={this.toggleCartModal}>Cart</MDBModalHeader>
                   <ResultTableComponent books={Array.from(this.state.cart.values())}
                                         cart={this.state.cart}
-                                        onAdded={(id) => this.onAdded(id)}/>
+                                        onCartUpdate={(id) => this.onCartUpdate(id)}/>
                   <MDBModalFooter>
                     <MDBBtn color="secondary" onClick={this.toggleCartModal}>Close</MDBBtn>
                     <MDBBtn color="primary" disabled={this.state.cart.size <= 0}>Download Now</MDBBtn>
@@ -93,15 +103,17 @@ class App extends Component {
         </nav>
 
         <Route exact path={['/', '/front-end']} render={() => (
-          <HomeView books={this.state.books}
-                    cart={this.state.cart}
-                    onAdded={(id) => this.onAdded(id)}
-                    updateBooks={(books) => this.updateBooks(books)}/>
+          <HomeView cart={this.state.cart}
+                    onCartUpdate={(id) => this.onCartUpdate(id)}
+                    onCartAddAll={(books) => this.onCartAddAll(books)}
+                    onCartRemoveAll={(books) => this.onCartRemoveAll(books)}/>
         )}/>
 
         <Route exact path={'/explore'} render={() => (
           <ExploreView cart={this.state.cart}
-                       onAdded={(id) => this.onAdded(id)}/>
+                       onCartUpdate={(id) => this.onCartUpdate(id)}
+                       onCartAddAll={(books) => this.onCartAddAll(books)}
+                       onCartRemoveAll={(books) => this.onCartRemoveAll(books)}/>
         )}/>
 
       </div>

@@ -12,22 +12,6 @@ class ExploreView extends Component {
     collection: {name: null, books: []}
   };
 
-  fetchBooks = (collectionName) => {
-    DBHelper.search("*").then(function (books) {
-      console.log(books);
-      if (books) {
-        if (this.prop.cart.size > 0) {
-          for (let book of books) {
-            if (this.prop.cart.has(book.id)) {
-              book.isAdded = true;
-            }
-          }
-        }
-      }
-    });
-    return {name: collectionName, books: []};
-  };
-
   toggleCollectionModal = (collectionName) => {
     if (collectionName) {
       let ctx = this;
@@ -57,6 +41,14 @@ class ExploreView extends Component {
         collection: {name: null, books: []}
       });
     }
+  };
+
+  addAllBooks = () => {
+    this.props.onCartAddAll(this.state.collection.books);
+  };
+
+  removeAllBooks = () => {
+    this.props.onCartRemoveAll(this.state.collection.books);
   };
 
   closeCollectionModal = () => {
@@ -146,10 +138,13 @@ class ExploreView extends Component {
           <MDBModalHeader toggle={this.closeCollectionModal}>{this.state.collection.name}</MDBModalHeader>
           <ResultTableComponent books={this.state.collection.books}
                                 cart={this.props.cart}
-                                onAdded={(id) => this.props.onAdded(id)}/>
+                                onCartUpdate={(id) => this.props.onCartUpdate(id)}/>
           <MDBModalFooter>
             <MDBBtn color="secondary" onClick={this.closeCollectionModal}>Close</MDBBtn>
-            <MDBBtn color="primary" disabled={this.state.collection.books <= 0}>Add all</MDBBtn>
+            <MDBBtn color="danger" disabled={this.state.collection.books <= 0}
+                    onClick={this.removeAllBooks}>Remove all</MDBBtn>
+            <MDBBtn color="primary" disabled={this.state.collection.books <= 0}
+                    onClick={this.addAllBooks}>Add all</MDBBtn>
           </MDBModalFooter>
         </MDBModal>
       </div>
