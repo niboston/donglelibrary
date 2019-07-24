@@ -29,8 +29,8 @@ class ResultTableComponent extends React.Component {
               <td>{book.Author}</td>
               <td>{book.Category}</td>
               <td><h6><a onClick={() => this.props.onAdded(book.id)}>{book.isAdded ?
-                <span className="badge badge-danger">"Remove"</span> :
-                <span className="badge badge-success">"Add"</span>}</a></h6></td>
+                <span className="badge badge-danger">Remove</span> :
+                <span className="badge badge-success">Add</span>}</a></h6></td>
             </tr>
           )}
           </tbody>
