@@ -30,21 +30,17 @@ class App extends Component {
     });
   };
 
-  onAdded(id) {
-    let books = this.state.books;
+  onAdded(book) {
     let cart = this.state.cart;
-    let book = books.find(x => x.id === id);
 
-    if (book.isAdded) {
-      book.isAdded = false;
+    if (cart.has(book.id)) {
       cart.delete(book.id);
     } else {
-      book.isAdded = true;
       cart.set(book.id, book);
     }
 
     console.log(cart);
-    this.setState({books: books, cart: cart});
+    this.setState({cart: cart});
   }
 
   updateNavItem(item) {
@@ -56,7 +52,7 @@ class App extends Component {
       <div>
 
         <nav className="navbar navbar-expand-lg navbar-dark primary-color">
-          <a className="navbar-brand" href="#">Dongle Library</a>
+          <NavLink className="navbar-brand" to="/" href="/">Dongle Library</NavLink>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                   aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"/>
@@ -84,6 +80,7 @@ class App extends Component {
                 <MDBModal isOpen={this.state.modal} toggle={this.toggleCartModal} centered size="lg">
                   <MDBModalHeader toggle={this.toggleCartModal}>Cart</MDBModalHeader>
                   <ResultTableComponent books={Array.from(this.state.cart.values())}
+                                        cart={this.state.cart}
                                         onAdded={(id) => this.onAdded(id)}/>
                   <MDBModalFooter>
                     <MDBBtn color="secondary" onClick={this.toggleCartModal}>Close</MDBBtn>
@@ -95,7 +92,7 @@ class App extends Component {
           </div>
         </nav>
 
-        <Route exact path={'/'} render={() => (
+        <Route exact path={['/', '/front-end']} render={() => (
           <HomeView books={this.state.books}
                     cart={this.state.cart}
                     onAdded={(id) => this.onAdded(id)}
@@ -103,7 +100,8 @@ class App extends Component {
         )}/>
 
         <Route exact path={'/explore'} render={() => (
-          <ExploreView/>
+          <ExploreView cart={this.state.cart}
+                       onAdded={(id) => this.onAdded(id)}/>
         )}/>
 
       </div>

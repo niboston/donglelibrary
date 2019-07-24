@@ -56,7 +56,9 @@ class HomeView extends Component {
               </button>
             </form>
 
-            <ResultTableComponent books={this.props.books} onAdded={(id) => this.props.onAdded(id)}/>
+            <ResultTableComponent books={this.props.books}
+                                  cart={this.props.cart}
+                                  onAdded={(id) => this.props.onAdded(id)}/>
           </div>
         </div>
       </div>

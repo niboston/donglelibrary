@@ -1,4 +1,4 @@
-const api = "https://librarysearchservice.search.windows.net/indexes/mockdata/docs?api-version=2019-05-06&search=";
+const api = "https://librarysearchservice.search.windows.net/indexes/booksindex/docs?api-version=2019-05-06&search=";
 
 let API_KEY = "B886F1DAC41FB38BA0126061A30AE32A"; // Temp API key
 
