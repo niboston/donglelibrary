@@ -7,6 +7,7 @@ import {
 import HomeView from "./HomeView";
 import {Route} from "react-router-dom";
 import ExploreView from "./ExploreView";
+import FavoriteView from "./FavoriteView";
 
 class App extends Component {
   state = {
@@ -85,6 +86,13 @@ class App extends Component {
                   <span className="sr-only">(current)</span>
                 </NavLink>
               </li>
+              {/* Favorite button */}
+              <li className={"nav-item" + (this.state.navItem === '/favorite' ? " active" : "")}>
+                <NavLink className="nav-link" to="/favorite" href={'/favorite'}
+                         onClick={() => this.updateNavItem('/favorite')}>Favorite
+                  <span className="sr-only">(current)</span>
+                </NavLink>
+              </li>
             </ul>
 
             <div className="navbar-right">
@@ -128,6 +136,15 @@ class App extends Component {
                        onCartUpdate={(id) => this.onCartUpdate(id)}
                        onCartAddAll={(books) => this.onCartAddAll(books)}
                        onCartRemoveAll={(books) => this.onCartRemoveAll(books)}/>
+        )}/>
+
+        {/* Route to favorite page */}
+          <Route exact path={'/favorite'} render={() => (
+            <FavoriteView cart={this.state.cart}
+                      onCartUpdate={(id) => this.onCartUpdate(id)}
+                      onCartAddAll={(books) => this.onCartAddAll(books)}
+                      onCartRemoveAll={(books) => this.onCartRemoveAll(books)}/>
+          )}/>
         )}/>
 
       </div>

@@ -15,7 +15,7 @@ class ExploreView extends Component {
   toggleCollectionModal = (collectionName) => {
     if (collectionName) {
       let ctx = this;
-      DBHelper.search({text: "*"}).then(function (books) {
+      DBHelper.search({text: collectionName}).then(function (books) {
         console.log(books);
         if (books) {
           if (ctx.props.cart.size > 0) {
@@ -65,7 +65,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/library.png"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -89,7 +89,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/stem.png"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -115,7 +115,7 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/fairy_tale.jpg"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
@@ -123,7 +123,7 @@ class ExploreView extends Component {
               </div>
               <div className="card-body">
                 <h4 className="card-title">Fairy Tales</h4>
-                <h6>Curated by <a>Darren Moffatt</a></h6>
+                <h6>Curated by <a>Vivian Guo</a></h6>
                 <p>Language: English</p>
                 <p className="card-text">Read our huge collection of famous fairy tales and bedtime stories. Brothers
                   Grimm fairy tales, Hans Christian Andersen, Charles Perrault, Aesop's fables,...</p>
@@ -134,8 +134,6 @@ class ExploreView extends Component {
             </div>
           </div>
         </div>
-
-
 
 
         <h1 className="text-center">Newest Collections</h1>
@@ -152,14 +150,14 @@ class ExploreView extends Component {
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">K-12 US Literature</h4>
-                <h6>Curated by <a>Robert Koester</a></h6>
+                <h4 className="card-title">For the Love of Books</h4>
+                <h6>Curated by <a>Jupiter Books</a></h6>
                 <p>Language: English</p>
-                <p className="card-text">This collection comprises works of American literature from colonial to
-                  contemporary times, including poetry, short
-                  stories, novels, drama, and nonfiction. The literary works provide opportunities for critical writing,
-                  creative projects, and online discussions. Students develop vocabulary skills and refresh their
-                  knowledge of grammar, usage, and mechanics in preparation for standardized tests.</p>
+                <p className="card-text">For the Love of Books gathers all of Thatcher Wine's philosophy about books,
+                  curating and designing libraries into one volume. Explore the significance of the home library,
+                  embellished with alluring photography and illustrations, in a keepsake worthy of any bibliophile’s
+                  collection. For the Love of Books shares the vision of Juniper Books, and embraces the roles that
+                  books fulfill in our lives and their staying power.</p>
                 <button type="button" className="btn btn-primary btn-md"
                         onClick={() => this.toggleCollectionModal("K-12 US Literature")}>Open collection
                 </button>
@@ -177,7 +175,7 @@ class ExploreView extends Component {
               </div>
               <div className="card-body">
                 <h4 className="card-title">STEM for high school students</h4>
-                <h6>Curated by <a>Darren Moffatt</a></h6>
+                <h6>Curated by <a>Michelle Lee</a></h6>
                 <p>Language: English, Spanish</p>
                 <p className="card-text">Discover meaningful, rigorous books and text sets for a fresh take on
                   STEM/STEAM
@@ -203,7 +201,7 @@ class ExploreView extends Component {
               </div>
               <div className="card-body">
                 <h4 className="card-title">Fairy Tales</h4>
-                <h6>Curated by <a>Darren Moffatt</a></h6>
+                <h6>Curated by <a>Tina Wen</a></h6>
                 <p>Language: English</p>
                 <p className="card-text">Read our huge collection of famous fairy tales and bedtime stories. Brothers
                   Grimm fairy tales, Hans Christian Andersen, Charles Perrault, Aesop's fables,...</p>
@@ -214,7 +212,6 @@ class ExploreView extends Component {
             </div>
           </div>
         </div>
-
 
 
         <h1 className="text-center">High School Book Collections</h1>
@@ -224,14 +221,14 @@ class ExploreView extends Component {
             <div className="card xs-4">
               <div className="view overlay">
                 <img className="card-img-top"
-                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     src="/assets/library.png"
                      alt="Card image cap"/>
                 <a>
                   <div className="mask rgba-white-slight"/>
                 </a>
               </div>
               <div className="card-body">
-                <h4 className="card-title">K-12 US Literature</h4>
+                <h4 className="card-title">Math for Middle School Students</h4>
                 <h6>Curated by <a>Robert Koester</a></h6>
                 <p>Language: English</p>
                 <p className="card-text">This collection comprises works of American literature from colonial to
@@ -293,11 +290,6 @@ class ExploreView extends Component {
             </div>
           </div>
         </div>
-
-
-
-
-
 
 
         <MDBModal isOpen={this.state.isModalOpen} toggle={this.closeCollectionModal} centered size="lg">

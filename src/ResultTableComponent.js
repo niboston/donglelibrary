@@ -40,7 +40,7 @@ class ResultTableComponent extends React.Component {
                     <span className="badge badge-danger">Remove</span> :
                     <span className="badge badge-success">Add</span>}</a>
                   </h6>
-                  <h6><a href={book.Links[0]}><span className="badge badge-info">Download</span></a></h6>
+                  <h6><a href={book.Links[0]} target="_blank"><span className="badge badge-info">Download</span></a></h6>
                 </td>
               </tr>
             )}
