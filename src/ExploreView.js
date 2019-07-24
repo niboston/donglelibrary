@@ -57,8 +57,9 @@ class ExploreView extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row my-5">
+      <div className="container my-5">
+        <h1 className="text-center">Most Downloaded</h1>
+        <div className="row mt-4 mb-5">
           {/*Card deck*/}
           <div className="card-deck">
             <div className="card xs-4">
@@ -133,6 +134,171 @@ class ExploreView extends Component {
             </div>
           </div>
         </div>
+
+
+
+
+        <h1 className="text-center">Newest Collections</h1>
+        <div className="row mt-4 mb-5">
+          {/*Card deck*/}
+          <div className="card-deck">
+            <div className="card xs-4">
+              <div className="view overlay">
+                <img className="card-img-top"
+                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     alt="Card image cap"/>
+                <a>
+                  <div className="mask rgba-white-slight"/>
+                </a>
+              </div>
+              <div className="card-body">
+                <h4 className="card-title">K-12 US Literature</h4>
+                <h6>Curated by <a>Robert Koester</a></h6>
+                <p>Language: English</p>
+                <p className="card-text">This collection comprises works of American literature from colonial to
+                  contemporary times, including poetry, short
+                  stories, novels, drama, and nonfiction. The literary works provide opportunities for critical writing,
+                  creative projects, and online discussions. Students develop vocabulary skills and refresh their
+                  knowledge of grammar, usage, and mechanics in preparation for standardized tests.</p>
+                <button type="button" className="btn btn-primary btn-md"
+                        onClick={() => this.toggleCollectionModal("K-12 US Literature")}>Open collection
+                </button>
+              </div>
+            </div>
+
+            <div className="card xs-4">
+              <div className="view overlay">
+                <img className="card-img-top"
+                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     alt="Card image cap"/>
+                <a>
+                  <div className="mask rgba-white-slight"/>
+                </a>
+              </div>
+              <div className="card-body">
+                <h4 className="card-title">STEM for high school students</h4>
+                <h6>Curated by <a>Darren Moffatt</a></h6>
+                <p>Language: English, Spanish</p>
+                <p className="card-text">Discover meaningful, rigorous books and text sets for a fresh take on
+                  STEM/STEAM
+                  study. Our books explore the physical, life, health, earth and space sciences along with engineering,
+                  art, mathematics, and technology. These high-interest nonfiction, realistic fiction, and science
+                  fiction
+                  books provide an engaging opportunity to discuss timely topics that will expand student knowledge and
+                  inspire the scientists of the future.</p>
+                <button type="button" className="btn btn-primary btn-md"
+                        onClick={() => this.toggleCollectionModal("STEM for high school students")}>Open collection
+                </button>
+              </div>
+            </div>
+
+            <div className="card xs-4">
+              <div className="view overlay">
+                <img className="card-img-top"
+                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     alt="Card image cap"/>
+                <a>
+                  <div className="mask rgba-white-slight"/>
+                </a>
+              </div>
+              <div className="card-body">
+                <h4 className="card-title">Fairy Tales</h4>
+                <h6>Curated by <a>Darren Moffatt</a></h6>
+                <p>Language: English</p>
+                <p className="card-text">Read our huge collection of famous fairy tales and bedtime stories. Brothers
+                  Grimm fairy tales, Hans Christian Andersen, Charles Perrault, Aesop's fables,...</p>
+                <button type="button" className="btn btn-primary btn-md"
+                        onClick={() => this.toggleCollectionModal("Fairy Tales")}>Open collection
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <h1 className="text-center">High School Book Collections</h1>
+        <div className="row mt-4 mb-5">
+          {/*Card deck*/}
+          <div className="card-deck">
+            <div className="card xs-4">
+              <div className="view overlay">
+                <img className="card-img-top"
+                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     alt="Card image cap"/>
+                <a>
+                  <div className="mask rgba-white-slight"/>
+                </a>
+              </div>
+              <div className="card-body">
+                <h4 className="card-title">K-12 US Literature</h4>
+                <h6>Curated by <a>Robert Koester</a></h6>
+                <p>Language: English</p>
+                <p className="card-text">This collection comprises works of American literature from colonial to
+                  contemporary times, including poetry, short
+                  stories, novels, drama, and nonfiction. The literary works provide opportunities for critical writing,
+                  creative projects, and online discussions. Students develop vocabulary skills and refresh their
+                  knowledge of grammar, usage, and mechanics in preparation for standardized tests.</p>
+                <button type="button" className="btn btn-primary btn-md"
+                        onClick={() => this.toggleCollectionModal("K-12 US Literature")}>Open collection
+                </button>
+              </div>
+            </div>
+
+            <div className="card xs-4">
+              <div className="view overlay">
+                <img className="card-img-top"
+                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     alt="Card image cap"/>
+                <a>
+                  <div className="mask rgba-white-slight"/>
+                </a>
+              </div>
+              <div className="card-body">
+                <h4 className="card-title">STEM for high school students</h4>
+                <h6>Curated by <a>Darren Moffatt</a></h6>
+                <p>Language: English, Spanish</p>
+                <p className="card-text">Discover meaningful, rigorous books and text sets for a fresh take on
+                  STEM/STEAM
+                  study. Our books explore the physical, life, health, earth and space sciences along with engineering,
+                  art, mathematics, and technology. These high-interest nonfiction, realistic fiction, and science
+                  fiction
+                  books provide an engaging opportunity to discuss timely topics that will expand student knowledge and
+                  inspire the scientists of the future.</p>
+                <button type="button" className="btn btn-primary btn-md"
+                        onClick={() => this.toggleCollectionModal("STEM for high school students")}>Open collection
+                </button>
+              </div>
+            </div>
+
+            <div className="card xs-4">
+              <div className="view overlay">
+                <img className="card-img-top"
+                     src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                     alt="Card image cap"/>
+                <a>
+                  <div className="mask rgba-white-slight"/>
+                </a>
+              </div>
+              <div className="card-body">
+                <h4 className="card-title">Fairy Tales</h4>
+                <h6>Curated by <a>Darren Moffatt</a></h6>
+                <p>Language: English</p>
+                <p className="card-text">Read our huge collection of famous fairy tales and bedtime stories. Brothers
+                  Grimm fairy tales, Hans Christian Andersen, Charles Perrault, Aesop's fables,...</p>
+                <button type="button" className="btn btn-primary btn-md"
+                        onClick={() => this.toggleCollectionModal("Fairy Tales")}>Open collection
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
 
         <MDBModal isOpen={this.state.isModalOpen} toggle={this.closeCollectionModal} centered size="lg">
           <MDBModalHeader toggle={this.closeCollectionModal}>{this.state.collection.name}</MDBModalHeader>

@@ -49,7 +49,7 @@ class ResultTableComponent extends React.Component {
 
         <section className="my-4">
           <h4>Categories</h4>
-          <select className="custom-select" style={{height: "500px"}} multiple>
+          <select className="custom-select" style={{height: "220px"}} multiple>
             <option value="2">Math</option>
             <option value="3">Science</option>
             <option value="4">Arts & Music</option>
