@@ -1,16 +1,15 @@
-const api = "https://librarysearchservice.search.windows.net/indexes/mockdata/docs?api-version=2019-05-06&search=in";
+const api = "https://librarysearchservice.search.windows.net/indexes/mockdata/docs?api-version=2019-05-06&search=*";
 
 let API_KEY = "B886F1DAC41FB38BA0126061A30AE32A"; // Temp API key
 
 const headers = {
-  'Accept': 'application/json',
-  'api-key': API_KEY
+  'content-type': 'application/json',
+  'api-Key': API_KEY
 };
 
 
 export const search = (query) =>
-  fetch(`${api}`, {
+  fetch(api, {
     method: 'GET',
     headers: headers,
-  }).then(res => res.json())
-    .then(data => data.values).catch(e => console.log(e));
+  }).then(res => res.json()).then(data => data.value);

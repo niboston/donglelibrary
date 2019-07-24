@@ -19,9 +19,9 @@ class ResultTableComponent extends React.Component {
         {books && books.map((book, index) =>
           <tr key={index}>
             <th scope="row">{index + 1}</th>
-            <td>{book.name}</td>
-            <td>{book.author}</td>
-            <td>{book.categories}</td>
+            <td>{book.BookName}</td>
+            <td>{book.Author}</td>
+            <td>{book.Category}</td>
           </tr>
         )}
         </tbody>

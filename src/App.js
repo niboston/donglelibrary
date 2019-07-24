@@ -27,6 +27,7 @@ class App extends Component {
 
     this.timeout = setTimeout(() => {
       DBHelper.search(query).then(function (books) {
+        console.log(books);
         if (books) {
           ctx.setState({books: books});
         }
