@@ -1,8 +1,14 @@
 import React from 'react';
 
 
-class ResultTableComponent extends React.Component {
+class FilterComponent extends React.Component {
 
+  searchCategory(event)
+  {
+    var index = event.nativeEvent.target.selectedIndex;
+    this.props.onCategorySelect(event.nativeEvent.target[index].text)
+
+  }
 
   render() {
     return (
@@ -50,16 +56,16 @@ class ResultTableComponent extends React.Component {
         <section className="my-4">
           <h4>Categories</h4>
           <select className="custom-select" style={{height: "220px"}} multiple>
-            <option value="2">Math</option>
-            <option value="3">Science</option>
-            <option value="4">Arts & Music</option>
-            <option value="5">Biographies</option>
-            <option value="6">Business</option>
-            <option value="7">Finance</option>
-            <option value="8">Economics</option>
-            <option value="9">Computers & Tech</option>
-            <option value="1">Fairy Tales</option>
-            <option value="10">Fiction</option>
+            <option value="2">Fiction</option>
+            <option value="3">Poetry</option>
+            <option value="4">Science</option>
+            <option value="5">Economics</option>
+            <option value="6">Psychology</option>
+            <option value="7">History</option>
+            <option value="8">Sociology</option>
+            <option value="9">Mathematics</option>
+            <option value="1">Geography</option>
+            <option value="10">Computers</option>
           </select>
         </section>
 
@@ -68,4 +74,4 @@ class ResultTableComponent extends React.Component {
   }
 }
 
-export default ResultTableComponent;
+export default FilterComponent;

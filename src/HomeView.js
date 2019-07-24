@@ -8,7 +8,7 @@ import {MDBBtn, MDBModalFooter} from "mdbreact";
 class HomeView extends Component {
   state = {
     books: [],
-    query: {"text": "", "language": "en", "format": [], "categories": []},
+    query: {"text": "", "language": "en", "format": [], "categories": new Set()},
     modal: false
   };
 
@@ -37,13 +37,27 @@ class HomeView extends Component {
     this.props.onCartRemoveAll(this.state.books);
   };
 
+  queryCategories(category)
+  {
+    let query = this.state.query;
+
+    if (query.categories.has(category))
+      query.categories.delete(category);
+
+    else
+      query.categories.add(category);
+
+    this.setState({query: query});
+    console.log("QUERYYY"+query.categories)
+  }
+
   render() {
     return (
       <div className="container">
         <div className="row my-5">
           {/* Side bar filter component */}
           <div className="col-md-3">
-            <FilterComponent/>
+            <FilterComponent onCategorySelect = {(categories)=>this.queryCategories(categories)}/>
           </div>
 
           {/* Result list component */}
