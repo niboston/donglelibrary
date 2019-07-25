@@ -7,36 +7,15 @@ const headers = {
   'api-Key': API_KEY
 };
 
-export const search_categories = (query) => {
-
-
-  var category_array = Array.from(query.categories.values());
-
-  let final_query = "&$filter=Category/any(t: t eq " + "'" + category_array + "')";
-  if (query.text != '') {
-    final_query = '&search=' + query.text + final_query;
-  }
-
-  console.log(final_query);
-  return fetch(api + final_query, {
-    method: 'GET',
-    headers: headers,
-  }).then(res => res.json())
-    .then(data => data.value);
-};
 
 export const search = (query) => {
   let final_query = '';
-  if (query.text != '') {
+  if (query.text) {
     final_query += '&search=' + query.text;
   }
 
-  if (query.categories) {
-    let category_array = Array.from(query.categories.values());
-    if (category_array != '') {
-      let category = category_array[category_array.length - 1];
-      final_query += "&$filter=Category/any(t: t eq " + "'" + category + "')";
-    }
+  if (query.categories && query.categories.length > 0) {
+    final_query += "&$filter=Category/any(t: search.in(t, '" + query.categories + "'))";
   }
 
   console.log(final_query);

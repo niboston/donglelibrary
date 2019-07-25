@@ -3,11 +3,10 @@ import React from 'react';
 
 class FilterComponent extends React.Component {
 
-  searchCategory(event)
-  {
-    var index = event.nativeEvent.target.selectedIndex;
-    this.props.onCategorySelect(event.nativeEvent.target[index].text)
-
+  onSelectCategories(event) {
+    let selectedOptions = event.nativeEvent.target.selectedOptions;
+    let categories = Object.values(selectedOptions).map((o) => o.text);
+    this.props.onSelectCategories(categories);
   }
 
   render() {
@@ -55,7 +54,8 @@ class FilterComponent extends React.Component {
 
         <section className="my-4">
           <h4>Categories</h4>
-          <select className="custom-select" style={{height: "220px"}} multiple>
+          <select className="custom-select" style={{height: "220px"}} multiple
+                  onChange={(e) => this.onSelectCategories(e)}>
             <option value="2">Fiction</option>
             <option value="3">Poetry</option>
             <option value="4">Science</option>
