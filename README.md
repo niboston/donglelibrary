@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dongle Library
 
-## Available Scripts
+An online library for teachers and educators in remote areas to search, categorize and download collections of books. (Microsoft Hackathon 2019)
 
-In the project directory, you can run:
+## How The App Works
+This is the front-end website that let users search for books, add books to cart and download books. It fetches book data from our Azure Search back-end that aggregates books from different sources (only from [Project Gutenberg](http://www.gutenberg.org/) for now).
 
-### `npm start`
+Live Demo on [Github Page](https://donglelibrary.github.io/front-end/).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## To run the app locally
+Install [Create React App](https://github.com/facebook/create-react-app) to begin building apps with React!
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Then, clone the app or download the app as a zip file:
+```
+git clone https://github.com/donglelibrary/front-end.git
+cd front-end
+```
+Next, install all project dependencies with
+```
+npm install
+```
 
-### `npm test`
+Finally, start the development server with
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Note:** the service worker is included in the production build.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Implemented functionalities
+* [x] Interface Design:
+  * [x] Responsiveness: All application components render on-screen in a responsive manner.
+  * [x] Usability: All application components are usable across modern desktop, tablet, and phone browsers.
+* [x] Application Functionality:
+  * [x] Search functionality: based on book name and author name.
+  * [x] Filter functionality: can filter based on one or more categories.
+  * [x] Cart functionalities: add and remove books from cart.
+  * [x] Book download: allow to download one book at a time.
+  * [ ] Explore page: not fully functioning yet, but it shows the idea of browsing other people's book collections.
+  * [ ] Favorite page:  not fully functioning yet, but users can see their favorite collections here.
+    
+## Developers:
+- Udit S.
+- Malvika M.
+- MinhKhang Vu
+- Michelle Lee
