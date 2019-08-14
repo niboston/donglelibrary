@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
+import {Route} from "react-router-dom";
 import './App.css';
-import ResultTableComponent from "./ResultTableComponent";
 import {
   MDBBtn, MDBContainer, MDBModal, MDBModalFooter, MDBModalHeader, NavLink, MDBIcon
 } from "mdbreact";
+import ResultTableComponent from "./ResultTableComponent";
 import HomeView from "./HomeView";
-import {Route} from "react-router-dom";
 import ExploreView from "./ExploreView";
 import FavoriteView from "./FavoriteView";
 
@@ -16,17 +16,32 @@ class App extends Component {
     navItem: ''
   };
 
-  componentDidMount() {
-
+  updateNavItem(item) {
+    /**
+     * Update the navItem state, which will essentially
+     * activate/deactivate active items on the nav bar.
+     *
+     * @item: a url path of navigation item
+     */
+    this.setState({navItem: item});
   }
 
   toggleCartModal = () => {
+    /**
+     * Toggle the cart modal to view the list of items in cart.
+     **/
     this.setState({
       modal: !this.state.modal
     });
   };
 
   onCartUpdate(book) {
+    /**
+     * This function has two operations. It either removes a book from cart
+     * or add a book to cart.
+     *
+     * @book: selected book object
+     */
     let cart = this.state.cart;
 
     if (cart.has(book.id)) {
@@ -39,6 +54,11 @@ class App extends Component {
   }
 
   onCartAddAll(books) {
+    /**
+     * Add all corresponding books in cart.
+     *
+     * @books: books to add
+     */
     for (let book of books) {
       let cart = this.state.cart;
       cart.set(book.id, book);
@@ -47,15 +67,16 @@ class App extends Component {
   }
 
   onCartRemoveAll(books) {
+    /**
+     * Remove all corresponding books in cart.
+     *
+     * @books: books to remove
+     */
     for (let book of books) {
       let cart = this.state.cart;
       cart.delete(book.id);
       this.setState({cart: cart});
     }
-  }
-
-  updateNavItem(item) {
-    this.setState({navItem: item});
   }
 
   render() {
@@ -139,12 +160,12 @@ class App extends Component {
         )}/>
 
         {/* Route to favorite page */}
-          <Route exact path={'/favorite'} render={() => (
-            <FavoriteView cart={this.state.cart}
-                      onCartUpdate={(id) => this.onCartUpdate(id)}
-                      onCartAddAll={(books) => this.onCartAddAll(books)}
-                      onCartRemoveAll={(books) => this.onCartRemoveAll(books)}/>
-          )}/>
+        <Route exact path={'/favorite'} render={() => (
+          <FavoriteView cart={this.state.cart}
+                        onCartUpdate={(id) => this.onCartUpdate(id)}
+                        onCartAddAll={(books) => this.onCartAddAll(books)}
+                        onCartRemoveAll={(books) => this.onCartRemoveAll(books)}/>
+        )}/>
 
       </div>
     );

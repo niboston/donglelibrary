@@ -18,7 +18,6 @@ export const search = (query) => {
     final_query += "&$filter=Category/any(t: search.in(t, '" + query.categories + "'))";
   }
 
-  console.log(final_query);
   return fetch(api + final_query, {
     method: 'GET',
     headers: headers,

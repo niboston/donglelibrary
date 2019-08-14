@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
+import {MDBBtn, MDBModalFooter} from "mdbreact";
 import * as DBHelper from "./DBHelper";
 import FilterComponent from "./FilterComponent";
 import ResultTableComponent from "./ResultTableComponent";
-import {MDBBtn, MDBModalFooter} from "mdbreact";
 
 class HomeView extends Component {
   state = {
@@ -16,7 +16,6 @@ class HomeView extends Component {
     e.preventDefault();
     let ctx = this;
     DBHelper.search(this.state.query).then(function (books) {
-      console.log(books);
       if (books) {
         ctx.setState({books: books});
       }
@@ -73,6 +72,7 @@ class HomeView extends Component {
                                   onCartUpdate={(id) => this.props.onCartUpdate(id)}
                                   emptyResultString={""}/>
 
+            {/* Remove/Add All Buttons */}
             {this.state.books && this.state.books.length > 0 &&
             <MDBModalFooter>
               <MDBBtn color="danger" disabled={this.state.books <= 0}

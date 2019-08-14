@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import ResultTableComponent from "./ResultTableComponent";
 import {
   MDBBtn, MDBModal, MDBModalFooter, MDBModalHeader,
 } from "mdbreact";
+import ResultTableComponent from "./ResultTableComponent";
 import * as DBHelper from "./DBHelper";
 
 class FavoriteView extends Component {
@@ -76,7 +76,8 @@ class FavoriteView extends Component {
                 <h4 className="card-title">Sci-fi Literature</h4>
                 <h6>Curated by <a>Jurels Neve</a></h6>
                 <p>Language: English, Francais</p>
-                <p className="card-text">Blast off with extraordinary tales featuring time travel, parallel universes, space exploration, extraterrestrial life and more!.</p>
+                <p className="card-text">Blast off with extraordinary tales featuring time travel, parallel universes,
+                  space exploration, extraterrestrial life and more!.</p>
                 <button type="button" className="btn btn-primary btn-md"
                         onClick={() => this.toggleCollectionModal("Sci-fi Literature")}>Open collection
                 </button>
@@ -96,9 +97,9 @@ class FavoriteView extends Component {
                 <h4 className="card-title">Hindi Children's Books</h4>
                 <h6>Curated by <a>Bindi Soohk</a></h6>
                 <p>Language: Hindi</p>
-                <p className="card-text">यह सारांश हिंदी में है। मुझे कोई हिंदी नहीं आती इसलिए आपको इस बुरी तरह से अनुवादित पाठ को पढ़ना होगा।
-
-इस भयानक वर्णन के लिए क्षमा करें, लेकिन यह सबसे अच्छा है जिसे आप यहाँ प्राप्त करने जा रहे हैं।</p>
+                <p className="card-text">यह सारांश हिंदी में है। मुझे कोई हिंदी नहीं आती इसलिए आपको इस बुरी तरह से
+                  अनुवादित पाठ को पढ़ना होगा। इस भयानक वर्णन के लिए क्षमा करें, लेकिन यह सबसे अच्छा है जिसे आप यहाँ
+                  प्राप्त करने जा रहे हैं।</p>
                 <button type="button" className="btn btn-primary btn-md"
                         onClick={() => this.toggleCollectionModal("Hindi Children's Books")}>Open collection
                 </button>
@@ -118,8 +119,10 @@ class FavoriteView extends Component {
                 <h4 className="card-title">Scandinavian History</h4>
                 <h6>Curated by <a>Khang Vu</a></h6>
                 <p>Language: Dansk, Suomalainen, Svenska</p>
-                <p className="card-text">Dette resume er på dansk. Jeg kender ingen dansk. Så du bliver bare nødt til at læse denne dårligt oversatte tekst.
-								Undskyld for denne forfærdelige beskrivelse, men dette er det bedste, du kommer hertil. Jeg kender heller ikke nogen af de andre sprog, der er anført i beskrivelsesfeltet. Tak.</p>
+                <p className="card-text">Dette resume er på dansk. Jeg kender ingen dansk. Så du bliver bare nødt til at
+                  læse denne dårligt oversatte tekst.
+                  Undskyld for denne forfærdelige beskrivelse, men dette er det bedste, du kommer hertil. Jeg kender
+                  heller ikke nogen af de andre sprog, der er anført i beskrivelsesfeltet. Tak.</p>
                 <button type="button" className="btn btn-primary btn-md"
                         onClick={() => this.toggleCollectionModal("Scandinavian History")}>Open collection
                 </button>

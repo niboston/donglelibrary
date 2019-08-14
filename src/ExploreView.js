@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import ResultTableComponent from "./ResultTableComponent";
 import {
   MDBBtn, MDBModal, MDBModalFooter, MDBModalHeader,
 } from "mdbreact";
+import ResultTableComponent from "./ResultTableComponent";
 import * as DBHelper from "./DBHelper";
 
 class ExploreView extends Component {
@@ -16,7 +16,6 @@ class ExploreView extends Component {
     if (collectionName) {
       let ctx = this;
       DBHelper.search({text: collectionName}).then(function (books) {
-        console.log(books);
         if (books) {
           if (ctx.props.cart.size > 0) {
             for (let book of books) {
@@ -32,7 +31,6 @@ class ExploreView extends Component {
           });
         }
       }).catch((e) => {
-        console.log(e);
         alert("Failed to retrieve collection!");
       });
     } else {
